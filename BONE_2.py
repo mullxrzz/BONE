@@ -52,8 +52,8 @@ def supply_ERC20(contract_address, contract_abi):
 def BONE_wallet_balance(BONE_address):
     BONE_address = Web3.toChecksumAddress(BONE_address)
     contract = web3_connection.eth.contract(address=SHIBASWAP_BONE_contract_address, abi=SHIBASWAP_BONE_contract_abi)
-    balance_token = contract.functions.balanceOf(BONE_address).call()
-
+    balance_token = web3_connection.fromWei(contract.functions.balanceOf(BONE_address).call(),'ether')
+    
 VIBE = (BONE_wallet_balance(xc95_BONE_address))
 print(type(VIBE))
 print(isinstance(VIBE, int))
