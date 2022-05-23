@@ -8,8 +8,8 @@ from decimal import Decimal
 
 percent = chr(37)
 
-# Fill in your infura API key here to connect to ETHEREUM node
-infura_url = 'https://mainnet.infura.io/v3/d6187bf3540244ad99f60866821594f5'
+# Fill in your infura API key here to connect to ETHEREUM node - NOTE THIS LINK WILL NOT WORK (YOU NEED YOUR OWN FROM https://infura.io/)
+infura_url = 'https://mainnet.infura.io/v3/d6187bf3540244ad99f60866819672f5'
 
 # Set up web 3 connection 
 web3 = Web3(Web3.HTTPProvider(infura_url))
@@ -130,7 +130,6 @@ my_ADDRESSES = [bury_BONE_address, unwoofed_BONE_address, TOPDOG_BONE_address,
                 MERKLE_BONE_address, xshib_MERKLE_BONE_address, xleash_MERKLE_BONE_address, tbone_MERKLE_BONE_address, 
                 MEXC_3_BONE_address, MEXC_BONE_address, HOTBIT_BONE_address, 
                 burnt_BONE_address]
-print (len(my_ADDRESSES))
 
 # iterating balanceOf function through elements in address
 bone_balance = []
@@ -141,13 +140,8 @@ for i in my_ADDRESSES:
     j = (round(web3.fromWei(balance, 'ether')/1000000,2))
     bone_balance.append(j)
 
-print (bone_balance)
-
-print (len(bone_balance))
-
 for i,j in zip(my_ADDRESSES, bone_balance):
     print (i,j)
-
 
 # changing class from decimal.Decimal to float
 balance_FLOAT = []
@@ -156,8 +150,6 @@ for i in bone_balance:
     j = "{0:f}".format(i)
     k = float(j)
     balance_FLOAT.append(k)
-
-print (balance_FLOAT)
 
 bury_BONE_balance = (balance_FLOAT[my_ADDRESSES.index(bury_BONE_address)])
 
@@ -195,26 +187,8 @@ HOTBIT_BONE_balance = (balance_FLOAT[my_ADDRESSES.index(HOTBIT_BONE_address)])
 
 burnt_BONE_balance = (balance_FLOAT[my_ADDRESSES.index(burnt_BONE_address)])
 
-print (bury_BONE_balance)
-
 # maximum dikuted supply of $BONE is 250 million tokens 
 DS = (round(250000000/1000000,2))
 
-#TBM = DS - supply_wei
-
-#print (TBM)
-
-#print (supply_wei)
-
-#print (CS)
-
-#print(web3.fromWei(CS, 'ether')) 
-
 print('For those who are not in #💬│bone, here are some supply facts for you.') 
 print('As of ' + now + ' (Block #: ' + str(block) + ')' + ', looking at the various $BONE (BONE SHIBASWAP) supply metrics:') 
-#print('The maximum diluted supply of $BONE (excluding burns) is ' + str(DS) + ' million $BONE.')
-#print('Thus far, a total of ' + str(supply_wei) + ' million $BONE has been minted. This leaves ' + str(TBM) + ' million $BONE to be minted by July 2024.')
-#print('At any given time, only 33' + percent + ' of $BONE rewards can be woofed. With the other 67' + percent + ' $BONE unwoofable. Currently ' + str(unwoofed_wei) +  ' million $BONE is unwoofable.')
-#print('$BONE is also used to form SSLP tokens and provide liquidity on SHIBASWAP. ' + str(OTHER_WEI) + ' million $BONE is within these liquidity pools.')
-#print('Additionally $BONE can be staked as $tBONE (tBONE Staked BONE SHIBASWAP). ' + str(tbone_wei) + ' million $BONE is being staked.')
-#print('This leaves a circulating supply of ' + str(CS_WEI) +  ' million $BONE. This is the amount of coins that are circulating in the market and are tradeable by the public.')
